@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
   try {
     console.log("request", request.headers.get("cache-control"));
-    const posts = await getMediaPosts(request); // <-- fixed line
+    const posts = await getMediaPosts(request);
     console.log({ posts });
     const response = NextResponse.json(posts);
     response.headers.set("Cache-Control", "no-store");
